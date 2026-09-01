@@ -1,0 +1,86 @@
+// =========================================
+// SERVICES / PRODUCTS PAGE
+// =========================================
+
+.filter-bar {
+  display: flex;
+  gap: $space-xs;
+  flex-wrap: wrap;
+  margin-bottom: $space-lg;
+
+  .filter-pill {
+    @include btn-base;
+    height: 40px;
+    padding: 0 $space-sm;
+    background: transparent;
+    border-color: $color-line;
+    color: $color-cream-dim;
+    font-size: 0.85rem;
+
+    &.active,
+    &:hover,
+    &:focus-visible {
+      border-color: $color-copper;
+      color: $color-copper;
+    }
+  }
+}
+
+.service-detail-card {
+  @include surface-card;
+  display: flex;
+  gap: $space-md;
+  align-items: flex-start;
+
+  @include respond(sm) {
+    flex-direction: column;
+  }
+
+  .service-icon {
+    flex: 0 0 auto;
+    width: 54px;
+    height: 54px;
+    border-radius: $radius-md;
+    background: rgba(199, 123, 61, 0.14);
+    color: $color-copper;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: $font-mono;
+    font-weight: 700;
+  }
+}
+
+// FAQ accordion tweaks (Bootstrap accordion, restyled)
+.accordion-item {
+  background: $color-espresso-2;
+  border: 1px solid $color-line;
+  margin-bottom: $space-xs;
+  border-radius: $radius-md !important;
+  overflow: hidden;
+}
+
+.accordion-button {
+  background: $color-espresso-2;
+  color: $color-cream;
+  font-family: $font-body;
+  font-weight: 600;
+
+  &:not(.collapsed) {
+    background: $color-espresso-2;
+    color: $color-copper;
+    box-shadow: none;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 3px rgba(199, 123, 61, 0.35);
+  }
+
+  &::after {
+    filter: invert(72%) sepia(23%) saturate(1200%) hue-rotate(346deg);
+  }
+}
+
+.accordion-body {
+  color: $color-cream-dim;
+}
