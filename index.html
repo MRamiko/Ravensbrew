@@ -46,52 +46,109 @@
 
   <main id="main-content">
 
-    <!-- ===== HERO ===== -->
+    <!-- ===== HERO — built around an actual roast curve (temp vs. time) ===== -->
     <section class="hero">
-      <div class="container">
-        <div class="row align-items-center g-5">
-          <div class="col-lg-6">
+      <div class="roast-chart" aria-hidden="true">
+        <svg viewBox="0 0 1200 500" preserveAspectRatio="xMidYMid slice">
+          <g class="roast-grid">
+            <line x1="0" y1="100" x2="1200" y2="100"></line>
+            <line x1="0" y1="200" x2="1200" y2="200"></line>
+            <line x1="0" y1="300" x2="1200" y2="300"></line>
+            <line x1="0" y1="400" x2="1200" y2="400"></line>
+          </g>
+          <path class="roast-line" d="M 0,430 C 150,420 250,390 350,340 C 450,290 480,260 560,220 C 650,175 700,150 800,120 C 900,95 1000,80 1200,55"></path>
+          <g class="roast-point">
+            <circle cx="560" cy="220" r="5"></circle>
+            <text x="576" y="205">First Crack — 196&#176;C</text>
+          </g>
+          <g class="roast-point">
+            <circle cx="900" cy="95" r="5"></circle>
+            <text x="916" y="80">Second Crack — 224&#176;C</text>
+          </g>
+        </svg>
+      </div>
+
+      <div class="container hero-content">
+        <div class="row">
+          <div class="col-lg-8">
             <div class="hero-copy">
-              <span class="eyebrow">Roasted in small batches, weekly</span>
-              <h1>Coffee that tastes like where it came from.</h1>
-              <p class="hero-lede">Ravensbrew sources single-origin green beans directly from growers, then roasts them in batches under 12kg so every bag stays close to the farm it left.</p>
+              <span class="eyebrow">Live roast log — batch #0412</span>
+              <h1>Coffee tastes like the <em class="accent">curve</em> it was roasted on.</h1>
+              <p class="hero-lede">Ravensbrew sources single-origin green beans directly from growers, then roasts them in batches under 12kg — tracking every degree from first crack to drop, so the curve above is the actual shape of what's in your cup.</p>
               <div class="hero-actions">
                 <a href="services.html" class="btn-primary">Browse Our Coffee</a>
-                <a href="about.html" class="btn-outline">Our Roasting Process</a>
+                <a href="about.html" class="btn-outline">Read the Roast Log</a>
               </div>
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <div class="hero-image-wrap">
-              <img src="https://placehold.co/800x1000/1D140F/F3E9DC?text=Fresh+Roasted+Beans" alt="Close-up of freshly roasted coffee beans cooling in a tray">
-              <div class="hero-stat-chip">
-                <span class="stat-num">48hr</span>
-                <span class="stat-label">Roast to Ship</span>
-              </div>
+              <dl class="hero-readout">
+                <div>
+                  <dt>Roast Time</dt>
+                  <dd>11:40</dd>
+                </div>
+                <div>
+                  <dt>Drop Temp</dt>
+                  <dd>224&deg;C</dd>
+                </div>
+                <div>
+                  <dt>Ship Window</dt>
+                  <dd>48hr</dd>
+                </div>
+              </dl>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ===== ROAST PROFILES (signature strip) ===== -->
-    <section class="section pt-0">
+    <!-- ===== ORIGIN TICKER ===== -->
+    <div class="origin-ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span class="ticker-item">Yirgacheffe, Ethiopia</span>
+        <span class="ticker-item">Huila, Colombia</span>
+        <span class="ticker-item">Nyeri, Kenya</span>
+        <span class="ticker-item">Mandheling, Sumatra</span>
+        <span class="ticker-item">Antigua, Guatemala</span>
+        <span class="ticker-item">Cerrado, Brazil</span>
+        <span class="ticker-item">Yirgacheffe, Ethiopia</span>
+        <span class="ticker-item">Huila, Colombia</span>
+        <span class="ticker-item">Nyeri, Kenya</span>
+        <span class="ticker-item">Mandheling, Sumatra</span>
+        <span class="ticker-item">Antigua, Guatemala</span>
+        <span class="ticker-item">Cerrado, Brazil</span>
+      </div>
+    </div>
+
+    <!-- ===== ROAST STAGES (real sequence — numbering earned) ===== -->
+    <section class="section">
       <div class="container">
-        <div class="roast-strip">
-          <div class="roast-bar" data-level="light">
-            <span class="eyebrow">Light Roast</span>
-            <div class="roast-bar-track"><span></span></div>
-            <p class="mb-0">Bright acidity, floral and citrus notes.</p>
+        <div class="section-head">
+          <span class="eyebrow">How a batch actually goes</span>
+          <h2>Five stages, tracked in every roast log.</h2>
+        </div>
+        <div class="roast-stages">
+          <div class="roast-stage">
+            <span class="stage-temp">0:00 — 4:30 · 100&deg;C</span>
+            <h3>Drying Phase</h3>
+            <p>Green beans lose moisture and turn from grassy to pale yellow. No flavor develops yet — this is pure preparation.</p>
           </div>
-          <div class="roast-bar" data-level="medium">
-            <span class="eyebrow">Medium Roast</span>
-            <div class="roast-bar-track"><span></span></div>
-            <p class="mb-0">Balanced body, caramel and stone fruit.</p>
+          <div class="roast-stage">
+            <span class="stage-temp">4:30 — 8:30 · 150&ndash;190&deg;C</span>
+            <h3>Maillard Reaction</h3>
+            <p>Sugars and amino acids brown the bean and build the base of its eventual flavor — bread crust, toasted grain.</p>
           </div>
-          <div class="roast-bar" data-level="dark">
-            <span class="eyebrow">Dark Roast</span>
-            <div class="roast-bar-track"><span></span></div>
-            <p class="mb-0">Bold and smoky, low acidity, cocoa finish.</p>
+          <div class="roast-stage">
+            <span class="stage-temp">8:30 — 9:20 · 196&deg;C</span>
+            <h3>First Crack</h3>
+            <p>Beans audibly pop as internal steam pressure releases. This is where light roasts are pulled.</p>
+          </div>
+          <div class="roast-stage">
+            <span class="stage-temp">9:20 — 11:00 · 205&ndash;218&deg;C</span>
+            <h3>Development</h3>
+            <p>The stretch between cracks, where we decide how much acidity to keep versus how much body to build.</p>
+          </div>
+          <div class="roast-stage">
+            <span class="stage-temp">11:00 — 11:40 · 224&deg;C</span>
+            <h3>Second Crack &amp; Drop</h3>
+            <p>A quieter, higher-pitched crack signals oils reaching the surface. We drop here for our dark roasts.</p>
           </div>
         </div>
       </div>
@@ -107,32 +164,44 @@
         <div class="row g-4">
           <div class="col-md-4">
             <div class="product-card">
+              <span class="product-index">01 / Light Roast</span>
               <div class="product-thumb">
-                <img src="https://placehold.co/500x375/2A1D15/F3E9DC?text=Ethiopia+Yirgacheffe" alt="Bag of Ethiopia Yirgacheffe coffee beans">
+                <img src="https://placehold.co/500x375/211712/F1E7D6?text=Ethiopia+Yirgacheffe" alt="Bag of Ethiopia Yirgacheffe coffee beans">
               </div>
               <h3>Ethiopia Yirgacheffe</h3>
               <p>Jasmine, bergamot, and a light black-tea body.</p>
-              <span class="product-price">$19 / 340g</span>
+              <div class="product-footer">
+                <span class="product-price">$19</span>
+                <span class="text-muted">340g</span>
+              </div>
             </div>
           </div>
           <div class="col-md-4">
             <div class="product-card">
+              <span class="product-index">02 / Medium Roast</span>
               <div class="product-thumb">
-                <img src="https://placehold.co/500x375/2A1D15/F3E9DC?text=Colombia+Huila" alt="Bag of Colombia Huila coffee beans">
+                <img src="https://placehold.co/500x375/211712/F1E7D6?text=Colombia+Huila" alt="Bag of Colombia Huila coffee beans">
               </div>
               <h3>Colombia Huila</h3>
               <p>Red apple, brown sugar, and a syrupy finish.</p>
-              <span class="product-price">$17 / 340g</span>
+              <div class="product-footer">
+                <span class="product-price">$17</span>
+                <span class="text-muted">340g</span>
+              </div>
             </div>
           </div>
           <div class="col-md-4">
             <div class="product-card">
+              <span class="product-index">03 / Dark Roast</span>
               <div class="product-thumb">
-                <img src="https://placehold.co/500x375/2A1D15/F3E9DC?text=Sumatra+Mandheling" alt="Bag of Sumatra Mandheling coffee beans">
+                <img src="https://placehold.co/500x375/211712/F1E7D6?text=Sumatra+Mandheling" alt="Bag of Sumatra Mandheling coffee beans">
               </div>
               <h3>Sumatra Mandheling</h3>
               <p>Earthy, full body, dark chocolate and cedar.</p>
-              <span class="product-price">$18 / 340g</span>
+              <div class="product-footer">
+                <span class="product-price">$18</span>
+                <span class="text-muted">340g</span>
+              </div>
             </div>
           </div>
         </div>
@@ -166,41 +235,33 @@
           <span class="eyebrow">Why Ravensbrew</span>
           <h2>Small enough to taste every batch.</h2>
         </div>
-        <div class="row g-4">
+        <div class="row g-0">
           <div class="col-md-6 col-lg-3">
             <div class="benefit-item">
-              <span class="benefit-icon" aria-hidden="true">01</span>
-              <div>
-                <h3>Direct Trade</h3>
-                <p>We buy from growers we've visited, at prices we agree on together.</p>
-              </div>
+              <span class="benefit-num">Direct Trade</span>
+              <h3>We buy in person</h3>
+              <p>At prices we agree on with growers, not ones dictated to them.</p>
             </div>
           </div>
           <div class="col-md-6 col-lg-3">
             <div class="benefit-item">
-              <span class="benefit-icon" aria-hidden="true">02</span>
-              <div>
-                <h3>Small Batches</h3>
-                <p>Nothing sits in a warehouse. We roast what ships that week.</p>
-              </div>
+              <span class="benefit-num">Small Batches</span>
+              <h3>Under 12kg a drum</h3>
+              <p>Nothing sits in a warehouse. We roast what ships that week.</p>
             </div>
           </div>
           <div class="col-md-6 col-lg-3">
             <div class="benefit-item">
-              <span class="benefit-icon" aria-hidden="true">03</span>
-              <div>
-                <h3>Cupped Daily</h3>
-                <p>Every roast is tasted against our records before it's approved.</p>
-              </div>
+              <span class="benefit-num">Cupped Daily</span>
+              <h3>Tasted before approval</h3>
+              <p>Every roast is scored against our records before it's bagged.</p>
             </div>
           </div>
           <div class="col-md-6 col-lg-3">
             <div class="benefit-item">
-              <span class="benefit-icon" aria-hidden="true">04</span>
-              <div>
-                <h3>Shipped Fresh</h3>
-                <p>Beans leave our roastery within 48 hours of coming out of the drum.</p>
-              </div>
+              <span class="benefit-num">Shipped Fresh</span>
+              <h3>48 hours, drum to door</h3>
+              <p>Beans leave the roastery within two days of coming off heat.</p>
             </div>
           </div>
         </div>
@@ -214,45 +275,18 @@
           <span class="eyebrow">From our customers</span>
           <h2>What people say after the first cup.</h2>
         </div>
-        <div class="row g-4">
-          <div class="col-md-4">
-            <div class="testimonial-card">
-              <div class="stars" aria-label="Rated 5 out of 5 stars">★★★★★</div>
-              <p>"The Yirgacheffe is unlike anything from the supermarket aisle. Genuinely floral."</p>
-              <div class="testimonial-author">
-                <img src="https://placehold.co/80x80/1D140F/F3E9DC?text=NM" alt="">
-                <div>
-                  <strong>Nina M.</strong><br>
-                  <span class="text-muted">Subscriber since 2022</span>
-                </div>
-              </div>
-            </div>
+        <div class="pullquote-strip">
+          <div class="pullquote">
+            <blockquote>"The Yirgacheffe is unlike anything from the supermarket aisle. Genuinely floral, and it actually tastes different bag to bag depending on the batch."</blockquote>
+            <cite>Nina M. — Subscriber since 2022</cite>
           </div>
-          <div class="col-md-4">
-            <div class="testimonial-card">
-              <div class="stars" aria-label="Rated 5 out of 5 stars">★★★★★</div>
-              <p>"Fast roast-to-door time and the bags actually tell you the roast date."</p>
-              <div class="testimonial-author">
-                <img src="https://placehold.co/80x80/1D140F/F3E9DC?text=DK" alt="">
-                <div>
-                  <strong>David K.</strong><br>
-                  <span class="text-muted">Local pickup customer</span>
-                </div>
-              </div>
-            </div>
+          <div class="pullquote">
+            <blockquote>"Fast roast-to-door time, and the bag tells me the exact drop temperature. I didn't know I wanted that until I had it."</blockquote>
+            <cite>David K. — Local pickup customer</cite>
           </div>
-          <div class="col-md-4">
-            <div class="testimonial-card">
-              <div class="stars" aria-label="Rated 5 out of 5 stars">★★★★★</div>
-              <p>"Our café switched suppliers three times before landing on Ravensbrew. Staying put."</p>
-              <div class="testimonial-author">
-                <img src="https://placehold.co/80x80/1D140F/F3E9DC?text=AP" alt="">
-                <div>
-                  <strong>Ana P.</strong><br>
-                  <span class="text-muted">Wholesale partner</span>
-                </div>
-              </div>
-            </div>
+          <div class="pullquote">
+            <blockquote>"Our café switched suppliers three times before landing on Ravensbrew. We're not switching again."</blockquote>
+            <cite>Ana P. — Wholesale partner</cite>
           </div>
         </div>
       </div>
@@ -293,7 +327,7 @@
           <ul class="footer-links">
             <li><a href="tel:+15551234567">+1 (555) 123-4567</a></li>
             <li><a href="mailto:hello@ravensbrew.example">hello@ravensbrew.example</a></li>
-            <li>142 Roastery Row, Portland, OR</li>
+            <li>Guria, Georgia</li>
           </ul>
         </div>
         <div class="col-lg-3">

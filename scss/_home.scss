@@ -3,23 +3,80 @@
 // =========================================
 
 .hero {
-  padding: $space-2xl 0 $space-xl;
   position: relative;
+  padding: $space-xl 0 $space-lg;
   overflow: hidden;
+  @include grain-overlay;
 
   @include respond(md) {
     padding: $space-lg 0 $space-md;
-    text-align: center;
   }
 }
 
-.hero-copy {
-  max-width: 560px;
+// The roast curve — an SVG line chart of temperature over roast time,
+// used as the hero's centerpiece instead of a stock photo. Headline
+// text overlaps it directly.
+.roast-chart {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
 
-  @include respond(md) {
-    max-width: 100%;
-    margin: 0 auto;
+  svg {
+    width: 100%;
+    height: 100%;
   }
+
+  .roast-line {
+    fill: none;
+    stroke: $color-copper;
+    stroke-width: 2.5;
+    stroke-dasharray: 1400;
+    stroke-dashoffset: 1400;
+    animation: draw-curve 2.4s ease-out forwards 0.3s;
+
+    @media (prefers-reduced-motion: reduce) {
+      stroke-dashoffset: 0;
+      animation: none;
+    }
+  }
+
+  .roast-grid line {
+    stroke: $color-line;
+    stroke-width: 1;
+  }
+
+  .roast-point circle {
+    fill: $color-espresso;
+    stroke: $color-green;
+    stroke-width: 2;
+  }
+
+  .roast-point text {
+    font-family: $font-mono;
+    font-size: 11px;
+    fill: $color-cream-dim;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+}
+
+@keyframes draw-curve {
+  to { stroke-dashoffset: 0; }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-copy {
+  max-width: 680px;
+}
+
+.hero-copy h1 {
+  mix-blend-mode: normal;
 }
 
 .hero-lede {
@@ -31,92 +88,92 @@
   display: flex;
   gap: $space-sm;
   margin-top: $space-md;
-
-  @include respond(md) {
-    justify-content: center;
-  }
-}
-
-.hero-image-wrap {
-  position: relative;
-  border-radius: $radius-lg;
-  overflow: hidden;
-  aspect-ratio: 4 / 5;
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-}
-
-.hero-stat-chip {
-  position: absolute;
-  bottom: $space-sm;
-  left: $space-sm;
-  background: rgba(29, 20, 15, 0.85);
-  backdrop-filter: blur(6px);
-  border: 1px solid $color-line;
-  border-radius: $radius-md;
-  padding: $space-xs $space-sm;
-
-  .stat-num {
-    font-family: $font-display;
-    font-size: 1.6rem;
-    color: $color-copper;
-    display: block;
-    line-height: 1;
-  }
-
-  .stat-label {
-    @include eyebrow;
-    font-size: 0.65rem;
-  }
-}
-
-// Roast-profile "signature" strip — visualizes the three roast levels
-.roast-strip {
-  display: flex;
-  gap: $space-sm;
   flex-wrap: wrap;
 }
 
-.roast-bar {
-  flex: 1;
-  min-width: 220px;
-  @include surface-card;
-  padding: $space-sm $space-md;
+.hero-readout {
+  display: flex;
+  gap: $space-lg;
+  margin-top: $space-xl;
+  flex-wrap: wrap;
 
-  .roast-bar-track {
-    height: 6px;
-    border-radius: 999px;
-    background: $color-line;
-    margin: $space-xs 0 $space-xs;
-    overflow: hidden;
-
-    span {
-      display: block;
-      height: 100%;
-      background: $color-copper;
-      border-radius: 999px;
-    }
+  dt {
+    @include eyebrow;
+    margin-bottom: 4px;
   }
 
-  &[data-level="light"] .roast-bar-track span { width: 35%; }
-  &[data-level="medium"] .roast-bar-track span { width: 65%; }
-  &[data-level="dark"] .roast-bar-track span { width: 90%; }
+  dd {
+    font-family: $font-display;
+    font-size: 1.8rem;
+    color: $color-cream;
+    margin: 0;
+  }
 }
 
-// Product / service cards
+// Origin ticker item spacing handled in _global.scss
+
+// Roast stages — a genuine sequence (drying, Maillard, first crack,
+// development, second crack), so numbering here is earned, not decorative
+.roast-stages {
+  counter-reset: stage;
+}
+
+.roast-stage {
+  position: relative;
+  padding-left: 64px;
+  padding-bottom: $space-lg;
+  border-left: 1px solid $color-line;
+  margin-left: 20px;
+
+  &:last-child {
+    border-left-color: transparent;
+    padding-bottom: 0;
+  }
+
+  &::before {
+    counter-increment: stage;
+    content: counter(stage, decimal-leading-zero);
+    position: absolute;
+    left: -21px;
+    top: 0;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: $color-espresso;
+    border: 1px solid $color-copper;
+    color: $color-copper;
+    font-family: $font-mono;
+    font-size: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .stage-temp {
+    @include eyebrow;
+    color: $color-green;
+  }
+}
+
+// Product cards — editorial number + large price treatment
 .product-card {
   @include surface-card;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .product-index {
+    font-family: $font-mono;
+    font-size: 0.75rem;
+    color: $color-cream-dim;
+    margin-bottom: $space-xs;
+  }
 
   .product-thumb {
-    border-radius: $radius-md;
     overflow: hidden;
     aspect-ratio: 4 / 3;
     margin-bottom: $space-sm;
+    border: 1px solid $color-line;
 
     img {
       width: 100%;
@@ -125,69 +182,82 @@
     }
   }
 
+  .product-footer {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-top: $space-sm;
+    border-top: 1px solid $color-line;
+  }
+
   .product-price {
     font-family: $font-mono;
     color: $color-copper;
+    font-size: 1.1rem;
   }
 }
 
-// Benefits
+// Benefits — kept as a quiet list, no icons pretending to be data
 .benefit-item {
-  display: flex;
-  gap: $space-sm;
-  align-items: flex-start;
+  padding: $space-sm 0;
+  border-bottom: 1px solid $color-line;
 
-  .benefit-icon {
-    flex: 0 0 auto;
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background: rgba(199, 123, 61, 0.14);
-    color: $color-copper;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .benefit-num {
     font-family: $font-mono;
-    font-weight: 600;
+    color: $color-green;
+    font-size: 0.8rem;
   }
 }
 
-// Testimonials
-.testimonial-card {
-  @include surface-card;
-  height: 100%;
+// Testimonials — one oversized pull-quote at a time instead of three
+// identical cards, since the point is the words, not a grid
+.pullquote-strip {
+  display: flex;
+  gap: $space-lg;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: $space-sm;
+  -webkit-overflow-scrolling: touch;
 
-  .stars {
+  &::-webkit-scrollbar { height: 6px; }
+  &::-webkit-scrollbar-thumb { background: $color-line; }
+}
+
+.pullquote {
+  flex: 0 0 min(100%, 620px);
+  scroll-snap-align: start;
+
+  blockquote {
+    font-family: $font-display;
+    font-style: italic;
+    font-size: clamp(1.3rem, 2.6vw, 1.9rem);
+    line-height: 1.3;
+    margin: 0 0 $space-sm;
+    color: $color-cream;
+  }
+
+  cite {
+    font-family: $font-mono;
+    font-style: normal;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
     color: $color-copper;
-    letter-spacing: 2px;
-    margin-bottom: $space-xs;
-  }
-
-  .testimonial-author {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: $space-sm;
-
-    img {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
   }
 }
 
-// CTA band
+// CTA band — diagonal-cut top edge, lime accent as the one loud moment
 .cta-band {
-  background: linear-gradient(120deg, $color-copper-dark, $color-copper);
-  border-radius: $radius-lg;
-  padding: $space-lg;
+  background: $color-green;
   color: $color-espresso;
-  text-align: center;
+  text-align: left;
+  padding: $space-xl $space-lg;
+  position: relative;
+  clip-path: polygon(0 40px, 100% 0, 100% 100%, 0 100%);
 
-  h2 { color: $color-espresso; }
-  p { color: rgba(29, 20, 15, 0.75); }
+  h2 { color: $color-espresso; max-width: 640px; }
+  p { color: rgba(22, 16, 12, 0.72); max-width: 480px; }
 
   .btn-primary {
     background: $color-espresso;
@@ -196,5 +266,10 @@
     &:hover, &:focus-visible {
       background: $color-espresso-2;
     }
+  }
+
+  @include respond(sm) {
+    clip-path: none;
+    padding: $space-lg $space-md;
   }
 }
