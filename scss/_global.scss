@@ -1,0 +1,129 @@
+// =========================================
+// GLOBAL BASE STYLES
+// =========================================
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: $color-espresso;
+  color: $color-cream;
+  font-family: $font-body;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+h1, h2, h3, h4 {
+  font-family: $font-display;
+  margin: 0 0 $space-sm;
+  line-height: 1.15;
+  font-weight: 600;
+}
+
+h1 { font-size: clamp(2.4rem, 5vw, 4.2rem); }
+h2 { font-size: clamp(1.8rem, 3.4vw, 2.6rem); }
+h3 { font-size: 1.3rem; }
+
+p {
+  color: $color-cream-dim;
+  margin: 0 0 $space-sm;
+}
+
+.section {
+  padding: $space-xl 0;
+
+  @include respond(md) {
+    padding: $space-lg 0;
+  }
+}
+
+.section-alt {
+  background-color: $color-espresso-2;
+}
+
+.eyebrow {
+  @include eyebrow;
+  display: block;
+  margin-bottom: $space-xs;
+}
+
+.section-head {
+  max-width: 640px;
+  margin-bottom: $space-lg;
+}
+
+.divider {
+  height: 1px;
+  background: $color-line;
+  border: none;
+  margin: 0;
+}
+
+// Buttons
+.btn-primary {
+  @include btn-base;
+  background-color: $color-copper;
+  color: $color-espresso;
+
+  &:hover, &:focus-visible {
+    background-color: $color-copper-dark;
+  }
+}
+
+.btn-outline {
+  @include btn-base;
+  background-color: transparent;
+  color: $color-cream;
+  border-color: $color-line;
+
+  &:hover, &:focus-visible {
+    border-color: $color-copper;
+    color: $color-copper;
+  }
+}
+
+// Generic content card (about/contact pages)
+.info-card {
+  @include surface-card;
+}
+
+// Visually-hidden utility for accessible skip link
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.skip-link {
+  position: absolute;
+  top: -60px;
+  left: $space-sm;
+  background: $color-copper;
+  color: $color-espresso;
+  padding: 10px 18px;
+  border-radius: $radius-sm;
+  z-index: 999;
+  transition: top 0.2s ease;
+
+  &:focus {
+    top: $space-sm;
+  }
+}
