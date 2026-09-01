@@ -15,7 +15,8 @@
   }
 }
 
-// Reusable pill button look, used for both <button> and <a class="btn-*">
+// Sharp-edged button — no pill shape, a deliberate departure from
+// the rounded-everything default
 @mixin btn-base {
   display: inline-flex;
   align-items: center;
@@ -25,21 +26,22 @@
   padding: 0 $space-md;
   border-radius: $btn-radius;
   border: 1px solid transparent;
-  font-family: $font-body;
-  font-weight: 600;
-  font-size: 0.95rem;
-  letter-spacing: 0.02em;
+  font-family: $font-mono;
+  font-weight: 500;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   text-decoration: none;
   cursor: pointer;
   transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
 
   &:hover,
   &:focus-visible {
-    transform: translateY(-2px);
+    transform: translate(3px, -3px);
   }
 
   &:focus-visible {
-    outline: 2px solid $color-copper;
+    outline: 2px solid $color-green;
     outline-offset: 3px;
   }
 }
@@ -53,16 +55,52 @@
   color: $color-copper;
 }
 
-// Card surface shared by service cards, review cards, etc.
+// Card surface — flat, hairline border, hard corner shadow on hover
+// instead of a soft lift, to match the cut-paper / roast-log feel
 @mixin surface-card {
   background: $color-espresso-2;
   border: 1px solid $color-line;
-  border-radius: $radius-lg;
+  border-radius: $radius-md;
   padding: $space-md;
-  transition: transform 0.25s ease, border-color 0.25s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 
   &:hover {
-    transform: translateY(-6px);
+    transform: translate(-4px, -4px);
     border-color: $color-copper;
+    box-shadow: 4px 4px 0 0 rgba(217, 138, 70, 0.35);
+  }
+}
+
+// Diagonal section cut — used to break the grid rhythm at a few
+// deliberate points rather than every section being a plain rectangle
+@mixin diagonal-top($deg: 2deg) {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: inherit;
+    transform-origin: top left;
+    transform: skewY(#{$deg * -1});
+    z-index: 0;
+  }
+}
+
+// Faint grain/noise overlay for texture on large dark surfaces
+@mixin grain-overlay {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.05;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 }

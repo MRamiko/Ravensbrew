@@ -2,24 +2,28 @@
 // VARIABLES — Ravensbrew Coffee Roastery
 // =========================================
 
-// Colors
-$color-espresso:    #1D140F; // primary dark background
-$color-espresso-2:  #2A1D15; // secondary dark surface
-$color-cream:       #F3E9DC; // primary text on dark
-$color-cream-dim:    rgba(243, 233, 220, 0.68);
-$color-copper:      #C77B3D; // accent
-$color-copper-dark: #9C5A26; // accent hover / shadow
-$color-line:        rgba(243, 233, 220, 0.14);
+// Colors — two-accent system: roasted copper (warmth) against
+// unroasted-green lime (the color of the bean before it ever hits heat)
+$color-espresso:    #16100C; // primary dark background
+$color-espresso-2:  #211712; // secondary dark surface
+$color-espresso-3:  #2C1F17; // tertiary / hover surface
+$color-cream:       #F1E7D6; // primary text on dark
+$color-cream-dim:   rgba(241, 231, 214, 0.66);
+$color-copper:      #D98A46; // roasted accent
+$color-copper-dark: #A8622A; // accent hover / shadow
+$color-green:       #C3D93C; // unroasted-bean accent — used sparingly, as the "risk" color
+$color-line:        rgba(241, 231, 214, 0.13);
 
 // Fonts
 $font-display: 'Fraunces', Georgia, serif;
 $font-body:    'Work Sans', 'Segoe UI', sans-serif;
 $font-mono:    'JetBrains Mono', 'Courier New', monospace;
 
-// Radius
-$radius-sm: 4px;
-$radius-md: 10px;
-$radius-lg: 22px;
+// Radius — mostly sharp/cut, editorial rather than soft-rounded
+$radius-sm: 2px;
+$radius-md: 3px;
+$radius-lg: 3px;
+$radius-pill: 999px;
 
 // Spacing scale
 $space-xs:  8px;
@@ -27,11 +31,11 @@ $space-sm:  16px;
 $space-md:  32px;
 $space-lg:  64px;
 $space-xl:  96px;
-$space-2xl: 140px;
+$space-2xl: 150px;
 
 // Buttons
-$btn-height: 52px;
-$btn-radius: 999px;
+$btn-height: 54px;
+$btn-radius: 2px;
 
 // Breakpoints (match Bootstrap's)
 $bp-sm: 576px;
