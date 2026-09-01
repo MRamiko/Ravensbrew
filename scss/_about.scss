@@ -1,0 +1,77 @@
+// =========================================
+// ABOUT PAGE
+// =========================================
+
+.page-hero {
+  padding: $space-xl 0 $space-md;
+  text-align: center;
+
+  .eyebrow { justify-content: center; display: flex; }
+}
+
+.story-image {
+  border-radius: $radius-lg;
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.timeline {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-left: 2px solid $color-line;
+
+  li {
+    position: relative;
+    padding: 0 0 $space-md $space-md;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: -7px;
+      top: 4px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: $color-copper;
+    }
+  }
+
+  .timeline-year {
+    font-family: $font-mono;
+    color: $color-copper;
+    font-size: 0.85rem;
+  }
+}
+
+.team-card {
+  text-align: center;
+
+  .team-photo {
+    border-radius: $radius-lg;
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+    margin-bottom: $space-xs;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .team-role {
+    @include eyebrow;
+  }
+}
+
+.value-card {
+  @include surface-card;
+  height: 100%;
+}
