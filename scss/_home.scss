@@ -1,0 +1,200 @@
+// =========================================
+// HOME PAGE
+// =========================================
+
+.hero {
+  padding: $space-2xl 0 $space-xl;
+  position: relative;
+  overflow: hidden;
+
+  @include respond(md) {
+    padding: $space-lg 0 $space-md;
+    text-align: center;
+  }
+}
+
+.hero-copy {
+  max-width: 560px;
+
+  @include respond(md) {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+}
+
+.hero-lede {
+  font-size: 1.15rem;
+  max-width: 460px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: $space-sm;
+  margin-top: $space-md;
+
+  @include respond(md) {
+    justify-content: center;
+  }
+}
+
+.hero-image-wrap {
+  position: relative;
+  border-radius: $radius-lg;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.hero-stat-chip {
+  position: absolute;
+  bottom: $space-sm;
+  left: $space-sm;
+  background: rgba(29, 20, 15, 0.85);
+  backdrop-filter: blur(6px);
+  border: 1px solid $color-line;
+  border-radius: $radius-md;
+  padding: $space-xs $space-sm;
+
+  .stat-num {
+    font-family: $font-display;
+    font-size: 1.6rem;
+    color: $color-copper;
+    display: block;
+    line-height: 1;
+  }
+
+  .stat-label {
+    @include eyebrow;
+    font-size: 0.65rem;
+  }
+}
+
+// Roast-profile "signature" strip — visualizes the three roast levels
+.roast-strip {
+  display: flex;
+  gap: $space-sm;
+  flex-wrap: wrap;
+}
+
+.roast-bar {
+  flex: 1;
+  min-width: 220px;
+  @include surface-card;
+  padding: $space-sm $space-md;
+
+  .roast-bar-track {
+    height: 6px;
+    border-radius: 999px;
+    background: $color-line;
+    margin: $space-xs 0 $space-xs;
+    overflow: hidden;
+
+    span {
+      display: block;
+      height: 100%;
+      background: $color-copper;
+      border-radius: 999px;
+    }
+  }
+
+  &[data-level="light"] .roast-bar-track span { width: 35%; }
+  &[data-level="medium"] .roast-bar-track span { width: 65%; }
+  &[data-level="dark"] .roast-bar-track span { width: 90%; }
+}
+
+// Product / service cards
+.product-card {
+  @include surface-card;
+  height: 100%;
+
+  .product-thumb {
+    border-radius: $radius-md;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    margin-bottom: $space-sm;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .product-price {
+    font-family: $font-mono;
+    color: $color-copper;
+  }
+}
+
+// Benefits
+.benefit-item {
+  display: flex;
+  gap: $space-sm;
+  align-items: flex-start;
+
+  .benefit-icon {
+    flex: 0 0 auto;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(199, 123, 61, 0.14);
+    color: $color-copper;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: $font-mono;
+    font-weight: 600;
+  }
+}
+
+// Testimonials
+.testimonial-card {
+  @include surface-card;
+  height: 100%;
+
+  .stars {
+    color: $color-copper;
+    letter-spacing: 2px;
+    margin-bottom: $space-xs;
+  }
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: $space-sm;
+
+    img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  }
+}
+
+// CTA band
+.cta-band {
+  background: linear-gradient(120deg, $color-copper-dark, $color-copper);
+  border-radius: $radius-lg;
+  padding: $space-lg;
+  color: $color-espresso;
+  text-align: center;
+
+  h2 { color: $color-espresso; }
+  p { color: rgba(29, 20, 15, 0.75); }
+
+  .btn-primary {
+    background: $color-espresso;
+    color: $color-cream;
+
+    &:hover, &:focus-visible {
+      background: $color-espresso-2;
+    }
+  }
+}
