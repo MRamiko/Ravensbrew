@@ -1,0 +1,44 @@
+// =========================================
+// RESPONSIVE OVERRIDES
+// This is the project's own custom media query,
+// on top of Bootstrap's built-in responsive grid classes.
+// =========================================
+
+@include respond(md) {
+  .section {
+    padding: $space-lg 0;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .service-detail-card {
+    text-align: center;
+
+    .service-icon {
+      margin: 0 auto;
+    }
+  }
+}
+
+@include respond(sm) {
+  h1 { font-size: 2.1rem; }
+  h2 { font-size: 1.5rem; }
+
+  .hero-stat-chip {
+    position: static;
+    display: inline-block;
+    margin-top: $space-sm;
+  }
+
+  .cta-band {
+    padding: $space-md;
+  }
+}
