@@ -4,9 +4,25 @@
 
 .page-hero {
   padding: $space-xl 0 $space-md;
-  text-align: center;
+  border-bottom: 1px solid $color-line;
+  position: relative;
 
-  .eyebrow { justify-content: center; display: flex; }
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-xs;
+
+    &::before {
+      content: "";
+      width: 28px;
+      height: 1px;
+      background: $color-copper;
+    }
+  }
+
+  h1 {
+    max-width: 780px;
+  }
 }
 
 .story-image {
