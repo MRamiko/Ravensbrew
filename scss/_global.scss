@@ -31,13 +31,22 @@ a {
 h1, h2, h3, h4 {
   font-family: $font-display;
   margin: 0 0 $space-sm;
-  line-height: 1.15;
+  line-height: 1.05;
   font-weight: 600;
+  letter-spacing: -0.01em;
 }
 
-h1 { font-size: clamp(2.4rem, 5vw, 4.2rem); }
-h2 { font-size: clamp(1.8rem, 3.4vw, 2.6rem); }
+h1 { font-size: clamp(2.8rem, 6.4vw, 5.6rem); font-weight: 500; }
+h2 { font-size: clamp(1.9rem, 3.6vw, 2.8rem); }
 h3 { font-size: 1.3rem; }
+
+// Italic serif used as inline emphasis inside headlines — the display
+// font's italic cut carries its own personality, so lean on it instead
+// of a color swap for emphasis
+em.accent {
+  font-style: italic;
+  color: $color-copper;
+}
 
 p {
   color: $color-cream-dim;
@@ -116,7 +125,7 @@ p {
   position: absolute;
   top: -60px;
   left: $space-sm;
-  background: $color-copper;
+  background: $color-green;
   color: $color-espresso;
   padding: 10px 18px;
   border-radius: $radius-sm;
@@ -126,4 +135,47 @@ p {
   &:focus {
     top: $space-sm;
   }
+}
+
+// Scrolling origin ticker — a strip of coffee-growing regions that
+// runs continuously beneath the hero, like a stock ticker for beans
+.origin-ticker {
+  border-top: 1px solid $color-line;
+  border-bottom: 1px solid $color-line;
+  background: $color-espresso-2;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: $space-xs 0;
+
+  @media (prefers-reduced-motion: reduce) {
+    .ticker-track { animation: none; }
+  }
+}
+
+.ticker-track {
+  display: inline-flex;
+  animation: ticker-scroll 32s linear infinite;
+}
+
+.ticker-item {
+  font-family: $font-mono;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: $color-cream-dim;
+  padding: 0 $space-md;
+  display: inline-flex;
+  align-items: center;
+  gap: $space-sm;
+
+  &::after {
+    content: "•";
+    color: $color-copper;
+    margin-left: $space-md;
+  }
+}
+
+@keyframes ticker-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
