@@ -1,0 +1,68 @@
+// =========================================
+// MIXINS
+// =========================================
+
+// Responsive breakpoint helper — used throughout instead of raw @media
+@mixin respond($breakpoint) {
+  @if $breakpoint == sm {
+    @media (max-width: $bp-sm) { @content; }
+  } @else if $breakpoint == md {
+    @media (max-width: $bp-md) { @content; }
+  } @else if $breakpoint == lg {
+    @media (max-width: $bp-lg) { @content; }
+  } @else if $breakpoint == xl {
+    @media (max-width: $bp-xl) { @content; }
+  }
+}
+
+// Reusable pill button look, used for both <button> and <a class="btn-*">
+@mixin btn-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-xs;
+  height: $btn-height;
+  padding: 0 $space-md;
+  border-radius: $btn-radius;
+  border: 1px solid transparent;
+  font-family: $font-body;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover,
+  &:focus-visible {
+    transform: translateY(-2px);
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-copper;
+    outline-offset: 3px;
+  }
+}
+
+// Small uppercase tracked label, used above section headings
+@mixin eyebrow {
+  font-family: $font-mono;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: $color-copper;
+}
+
+// Card surface shared by service cards, review cards, etc.
+@mixin surface-card {
+  background: $color-espresso-2;
+  border: 1px solid $color-line;
+  border-radius: $radius-lg;
+  padding: $space-md;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+
+  &:hover {
+    transform: translateY(-6px);
+    border-color: $color-copper;
+  }
+}
