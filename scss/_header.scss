@@ -1,0 +1,88 @@
+// =========================================
+// HEADER / NAVBAR
+// =========================================
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: rgba(29, 20, 15, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid $color-line;
+}
+
+.navbar {
+  padding: $space-xs 0;
+}
+
+.navbar-brand {
+  font-family: $font-display;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: $color-cream !important;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  .brand-mark {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: $color-copper;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: $font-mono;
+    font-size: 0.8rem;
+    color: $color-espresso;
+  }
+}
+
+.navbar-nav {
+  .nav-link {
+    font-family: $font-body;
+    font-weight: 500;
+    color: $color-cream-dim !important;
+    padding: 8px 16px !important;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 16px;
+      right: 16px;
+      bottom: 4px;
+      height: 2px;
+      background: $color-copper;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.25s ease;
+    }
+
+    &:hover,
+    &:focus-visible {
+      color: $color-cream !important;
+    }
+
+    &:hover::after,
+    &:focus-visible::after {
+      transform: scaleX(1);
+    }
+  }
+
+  .nav-link.active {
+    color: $color-copper !important;
+
+    &::after {
+      transform: scaleX(1);
+    }
+  }
+}
+
+.navbar-toggler {
+  border-color: $color-line;
+
+  &:focus {
+    box-shadow: 0 0 0 3px rgba(199, 123, 61, 0.4);
+  }
+}

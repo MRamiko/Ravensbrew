@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ravensbrew Coffee Roastery — Small-batch coffee, honestly roasted</title>
+  <meta name="description" content="Ravensbrew is a small-batch coffee roastery. Browse our single-origin coffees, learn our roasting process, and find your nearest cup.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Compiled project styles (SCSS -> CSS) -->
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ===== HEADER / NAVBAR ===== -->
+  <header class="site-header">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <span class="brand-mark" aria-hidden="true">R</span>
+          Ravensbrew
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-center">
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="services.html">Products</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          </ul>
+          <a href="services.html" class="btn-primary ms-lg-4">Shop Beans</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6">
+            <div class="hero-copy">
+              <span class="eyebrow">Roasted in small batches, weekly</span>
+              <h1>Coffee that tastes like where it came from.</h1>
+              <p class="hero-lede">Ravensbrew sources single-origin green beans directly from growers, then roasts them in batches under 12kg so every bag stays close to the farm it left.</p>
+              <div class="hero-actions">
+                <a href="services.html" class="btn-primary">Browse Our Coffee</a>
+                <a href="about.html" class="btn-outline">Our Roasting Process</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="hero-image-wrap">
+              <img src="https://placehold.co/800x1000/1D140F/F3E9DC?text=Fresh+Roasted+Beans" alt="Close-up of freshly roasted coffee beans cooling in a tray">
+              <div class="hero-stat-chip">
+                <span class="stat-num">48hr</span>
+                <span class="stat-label">Roast to Ship</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ROAST PROFILES (signature strip) ===== -->
+    <section class="section pt-0">
+      <div class="container">
+        <div class="roast-strip">
+          <div class="roast-bar" data-level="light">
+            <span class="eyebrow">Light Roast</span>
+            <div class="roast-bar-track"><span></span></div>
+            <p class="mb-0">Bright acidity, floral and citrus notes.</p>
+          </div>
+          <div class="roast-bar" data-level="medium">
+            <span class="eyebrow">Medium Roast</span>
+            <div class="roast-bar-track"><span></span></div>
+            <p class="mb-0">Balanced body, caramel and stone fruit.</p>
+          </div>
+          <div class="roast-bar" data-level="dark">
+            <span class="eyebrow">Dark Roast</span>
+            <div class="roast-bar-track"><span></span></div>
+            <p class="mb-0">Bold and smoky, low acidity, cocoa finish.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PRODUCTS / SERVICES ===== -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">This week's roast</span>
+          <h2>Three origins, ready to ship.</h2>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="product-card">
+              <div class="product-thumb">
+                <img src="https://placehold.co/500x375/2A1D15/F3E9DC?text=Ethiopia+Yirgacheffe" alt="Bag of Ethiopia Yirgacheffe coffee beans">
+              </div>
+              <h3>Ethiopia Yirgacheffe</h3>
+              <p>Jasmine, bergamot, and a light black-tea body.</p>
+              <span class="product-price">$19 / 340g</span>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="product-card">
+              <div class="product-thumb">
+                <img src="https://placehold.co/500x375/2A1D15/F3E9DC?text=Colombia+Huila" alt="Bag of Colombia Huila coffee beans">
+              </div>
+              <h3>Colombia Huila</h3>
+              <p>Red apple, brown sugar, and a syrupy finish.</p>
+              <span class="product-price">$17 / 340g</span>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="product-card">
+              <div class="product-thumb">
+                <img src="https://placehold.co/500x375/2A1D15/F3E9DC?text=Sumatra+Mandheling" alt="Bag of Sumatra Mandheling coffee beans">
+              </div>
+              <h3>Sumatra Mandheling</h3>
+              <p>Earthy, full body, dark chocolate and cedar.</p>
+              <span class="product-price">$18 / 340g</span>
+            </div>
+          </div>
+        </div>
+        <div class="text-center mt-5">
+          <a href="services.html" class="btn-outline">See All Products</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ABOUT TEASER ===== -->
+    <section class="section">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6">
+            <img src="https://placehold.co/700x520/2A1D15/F3E9DC?text=Roastery+Floor" alt="Interior of the Ravensbrew roastery with a drum roaster" class="story-image">
+          </div>
+          <div class="col-lg-6">
+            <span class="eyebrow">Who we are</span>
+            <h2>A roastery run by three people and one very old roaster.</h2>
+            <p>Ravensbrew started in a converted garage in 2018. We still roast on the same 12kg drum machine, buy directly from growers we've met in person, and cup every batch before it's bagged.</p>
+            <a href="about.html" class="btn-outline">Read Our Story</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== BENEFITS ===== -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Why Ravensbrew</span>
+          <h2>Small enough to taste every batch.</h2>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-3">
+            <div class="benefit-item">
+              <span class="benefit-icon" aria-hidden="true">01</span>
+              <div>
+                <h3>Direct Trade</h3>
+                <p>We buy from growers we've visited, at prices we agree on together.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="benefit-item">
+              <span class="benefit-icon" aria-hidden="true">02</span>
+              <div>
+                <h3>Small Batches</h3>
+                <p>Nothing sits in a warehouse. We roast what ships that week.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="benefit-item">
+              <span class="benefit-icon" aria-hidden="true">03</span>
+              <div>
+                <h3>Cupped Daily</h3>
+                <p>Every roast is tasted against our records before it's approved.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="benefit-item">
+              <span class="benefit-icon" aria-hidden="true">04</span>
+              <div>
+                <h3>Shipped Fresh</h3>
+                <p>Beans leave our roastery within 48 hours of coming out of the drum.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TESTIMONIALS ===== -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">From our customers</span>
+          <h2>What people say after the first cup.</h2>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="testimonial-card">
+              <div class="stars" aria-label="Rated 5 out of 5 stars">★★★★★</div>
+              <p>"The Yirgacheffe is unlike anything from the supermarket aisle. Genuinely floral."</p>
+              <div class="testimonial-author">
+                <img src="https://placehold.co/80x80/1D140F/F3E9DC?text=NM" alt="">
+                <div>
+                  <strong>Nina M.</strong><br>
+                  <span class="text-muted">Subscriber since 2022</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="testimonial-card">
+              <div class="stars" aria-label="Rated 5 out of 5 stars">★★★★★</div>
+              <p>"Fast roast-to-door time and the bags actually tell you the roast date."</p>
+              <div class="testimonial-author">
+                <img src="https://placehold.co/80x80/1D140F/F3E9DC?text=DK" alt="">
+                <div>
+                  <strong>David K.</strong><br>
+                  <span class="text-muted">Local pickup customer</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="testimonial-card">
+              <div class="stars" aria-label="Rated 5 out of 5 stars">★★★★★</div>
+              <p>"Our café switched suppliers three times before landing on Ravensbrew. Staying put."</p>
+              <div class="testimonial-author">
+                <img src="https://placehold.co/80x80/1D140F/F3E9DC?text=AP" alt="">
+                <div>
+                  <strong>Ana P.</strong><br>
+                  <span class="text-muted">Wholesale partner</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CTA BAND ===== -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="cta-band">
+          <h2>Get a fresh bag on your doorstep, every two weeks.</h2>
+          <p>Cancel or pause anytime. First bag ships within 48 hours of roasting.</p>
+          <a href="contact.html" class="btn-primary">Start a Subscription</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <div class="footer-brand">Ravensbrew</div>
+          <p>Small-batch coffee roastery. Direct trade, cupped daily, shipped fresh.</p>
+        </div>
+        <div class="col-6 col-lg-2">
+          <div class="footer-col-title">Site</div>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Products</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-3">
+          <div class="footer-col-title">Contact</div>
+          <ul class="footer-links">
+            <li><a href="tel:+15551234567">+1 (555) 123-4567</a></li>
+            <li><a href="mailto:hello@ravensbrew.example">hello@ravensbrew.example</a></li>
+            <li>142 Roastery Row, Portland, OR</li>
+          </ul>
+        </div>
+        <div class="col-lg-3">
+          <div class="footer-col-title">Follow</div>
+          <ul class="footer-links">
+            <li><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="https://facebook.com" target="_blank" rel="noopener">Facebook</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Ravensbrew Coffee Roastery. All rights reserved.</span>
+        <span>Built with HTML5, SCSS &amp; Bootstrap</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+// =========================================
+// FOOTER
+// =========================================
+
+.site-footer {
+  background-color: $color-espresso-2;
+  border-top: 1px solid $color-line;
+  padding: $space-lg 0 $space-md;
+}
+
+.footer-brand {
+  font-family: $font-display;
+  font-size: 1.3rem;
+  margin-bottom: $space-xs;
+}
+
+.footer-col-title {
+  @include eyebrow;
+  margin-bottom: $space-sm;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    margin-bottom: 10px;
+  }
+
+  a {
+    text-decoration: none;
+    color: $color-cream-dim;
+
+    &:hover,
+    &:focus-visible {
+      color: $color-copper;
+    }
+  }
+}
+
+.footer-bottom {
+  margin-top: $space-lg;
+  padding-top: $space-sm;
+  border-top: 1px solid $color-line;
+  font-size: 0.85rem;
+  color: $color-cream-dim;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: $space-xs;
+}
