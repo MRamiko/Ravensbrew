@@ -48,7 +48,7 @@
 }
 
 // Offerings — a quiet numbered list (real count of four services),
-// matching the benefit-item rhythm from the homepage
+// staircased so each row steps in a little further than the last
 .offering-row {
   display: grid;
   grid-template-columns: 90px 1fr;
@@ -58,9 +58,14 @@
 
   &:first-child { border-top: 1px solid $color-line; }
 
+  &:nth-child(2) { margin-left: $space-md; }
+  &:nth-child(3) { margin-left: $space-lg; }
+  &:nth-child(4) { margin-left: $space-xl; }
+
   @include respond(sm) {
     grid-template-columns: 1fr;
     gap: $space-xs;
+    margin-left: 0 !important;
   }
 }
 
