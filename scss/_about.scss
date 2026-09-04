@@ -37,32 +37,63 @@
   }
 }
 
-// Timeline styled like the roast-stage log on the homepage —
-// same numbered-circle language, but the numbers here are years,
-// since this sequence is chronological, not procedural
+// Story section — image tilts slightly and the text column drops
+// down beside it, rather than aligning to dead center
+.about-story-image {
+  transform: rotate(-1deg);
+
+  @include respond(lg) {
+    transform: none;
+  }
+}
+
+.about-story-copy {
+  margin-top: $space-xl;
+
+  @include respond(lg) {
+    margin-top: $space-md;
+  }
+}
+
+// Timeline — zigzags left/right down the page instead of running
+// in one straight column
 .timeline {
   list-style: none;
   padding: 0;
   margin: 0;
-  border-left: 1px solid $color-line;
 
   li {
     position: relative;
-    padding: 0 0 $space-lg $space-lg;
-    margin-left: 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: $space-md;
+    width: 88%;
+    padding-bottom: $space-lg;
 
     &:last-child { padding-bottom: 0; }
 
     &::before {
       content: "";
-      position: absolute;
-      left: -21px;
-      top: 4px;
+      flex: 0 0 auto;
       width: 10px;
       height: 10px;
+      margin-top: 8px;
       border-radius: 50%;
       background: $color-espresso;
       border: 1px solid $color-copper;
+    }
+
+    &:nth-child(even) {
+      margin-left: auto;
+      flex-direction: row-reverse;
+      text-align: right;
+    }
+
+    @include respond(md) {
+      width: 100%;
+      margin-left: 0 !important;
+      flex-direction: row !important;
+      text-align: left !important;
     }
   }
 
@@ -74,8 +105,8 @@
   }
 }
 
-// Values — set as annotated marginalia (a running quote with a
-// short label beside it) instead of three identical boxed cards
+// Values — staircased marginalia rows, each indented a little
+// further than the last
 .value-row {
   display: grid;
   grid-template-columns: 140px 1fr;
@@ -85,9 +116,13 @@
 
   &:first-child { border-top: 1px solid $color-line; }
 
+  &:nth-child(2) { margin-left: $space-lg; }
+  &:nth-child(3) { margin-left: $space-xl; }
+
   @include respond(sm) {
     grid-template-columns: 1fr;
     gap: $space-xs;
+    margin-left: 0 !important;
   }
 }
 
@@ -101,7 +136,8 @@
   p { margin: 0; max-width: 620px; }
 }
 
-// Team — an editorial masthead list rather than circular photo cards
+// Team — editorial masthead, alternating which side the photo sits
+// on and tilting it slightly, rather than a uniform photo-left list
 .masthead {
   list-style: none;
   padding: 0;
@@ -122,6 +158,20 @@
   }
 
   &:first-child { border-top: 1px solid $color-line; }
+
+  &:nth-child(even) {
+    flex-direction: row-reverse;
+    text-align: right;
+
+    .masthead-num { margin-left: 0; margin-right: auto; }
+  }
+
+  @include respond(sm) {
+    flex-direction: row !important;
+    text-align: left !important;
+
+    .masthead-num { margin-left: auto !important; margin-right: 0 !important; }
+  }
 }
 
 .masthead-photo {
@@ -130,6 +180,8 @@
   height: 64px;
   overflow: hidden;
   border: 1px solid $color-line;
+  transform: rotate(-2deg);
+  transition: transform 0.25s ease;
 
   img {
     width: 100%;
@@ -138,6 +190,14 @@
     filter: grayscale(1);
     transition: filter 0.25s ease;
   }
+}
+
+.masthead-item:nth-child(even) .masthead-photo {
+  transform: rotate(2deg);
+}
+
+.masthead-item:hover .masthead-photo {
+  transform: rotate(0deg);
 }
 
 .masthead-item:hover .masthead-photo img {
@@ -161,10 +221,6 @@
   color: $color-cream-dim;
   font-size: 0.85rem;
   display: none;
-
-  @include respond(sm) {
-    display: none;
-  }
 
   @media (min-width: 577px) {
     display: block;
