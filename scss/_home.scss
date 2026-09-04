@@ -96,6 +96,11 @@
   gap: $space-lg;
   margin-top: $space-xl;
   flex-wrap: wrap;
+  transform: rotate(-1deg);
+
+  @include respond(md) {
+    transform: none;
+  }
 
   dt {
     @include eyebrow;
@@ -110,32 +115,55 @@
   }
 }
 
+// About-teaser: image breaks out of its column and overlaps the
+// text column slightly, rather than sitting in a clean side-by-side split
+.teaser-section {
+  overflow: visible;
+}
+
+.teaser-image {
+  transform: rotate(-1.5deg);
+  position: relative;
+  z-index: 1;
+
+  @include respond(lg) {
+    transform: none;
+  }
+}
+
+.teaser-copy {
+  position: relative;
+  margin-top: $space-xl;
+
+  @include respond(lg) {
+    margin-top: $space-md;
+  }
+}
+
 // Origin ticker item spacing handled in _global.scss
 
 // Roast stages — a genuine sequence (drying, Maillard, first crack,
-// development, second crack), so numbering here is earned, not decorative
+// development, second crack). Alternates side to side instead of
+// running down a single straight column.
 .roast-stages {
   counter-reset: stage;
+  max-width: 780px;
 }
 
 .roast-stage {
   position: relative;
-  padding-left: 64px;
+  display: flex;
+  align-items: flex-start;
+  gap: $space-md;
   padding-bottom: $space-lg;
-  border-left: 1px solid $color-line;
-  margin-left: 20px;
+  width: 86%;
 
-  &:last-child {
-    border-left-color: transparent;
-    padding-bottom: 0;
-  }
+  &:last-child { padding-bottom: 0; }
 
   &::before {
     counter-increment: stage;
     content: counter(stage, decimal-leading-zero);
-    position: absolute;
-    left: -21px;
-    top: 0;
+    flex: 0 0 auto;
     width: 42px;
     height: 42px;
     border-radius: 50%;
@@ -149,13 +177,28 @@
     justify-content: center;
   }
 
+  &:nth-child(even) {
+    margin-left: auto;
+    flex-direction: row-reverse;
+    text-align: right;
+  }
+
+  @include respond(md) {
+    width: 100%;
+    margin-left: 0 !important;
+    flex-direction: row !important;
+    text-align: left !important;
+  }
+
   .stage-temp {
     @include eyebrow;
     color: $color-green;
   }
 }
 
-// Product cards — editorial number + large price treatment
+// Product cards — editorial number + large price treatment.
+// Staggered vertically in a loose masonry rhythm rather than a
+// perfectly even grid, reset flat below lg.
 .product-card {
   @include surface-card;
   height: 100%;
@@ -198,7 +241,28 @@
   }
 }
 
-// Benefits — kept as a quiet list, no icons pretending to be data
+.product-grid {
+  [class*="col-"]:nth-child(3n+2) .product-card {
+    transform: translateY($space-lg);
+  }
+
+  [class*="col-"]:nth-child(3n+3) .product-card {
+    transform: translateY(-#{$space-sm});
+  }
+
+  .product-card:hover {
+    transform: translate(-4px, -4px) !important;
+  }
+
+  @include respond(md) {
+    [class*="col-"] .product-card {
+      transform: none !important;
+    }
+  }
+}
+
+// Benefits — kept as a quiet list, offset in a staggered rhythm
+// rather than four items sitting in a perfectly even row
 .benefit-item {
   padding: $space-sm 0;
   border-bottom: 1px solid $color-line;
@@ -207,6 +271,19 @@
     font-family: $font-mono;
     color: $color-green;
     font-size: 0.8rem;
+  }
+}
+
+.benefit-grid {
+  [class*="col-"]:nth-child(2) .benefit-item,
+  [class*="col-"]:nth-child(4) .benefit-item {
+    margin-top: $space-lg;
+  }
+
+  @include respond(lg) {
+    [class*="col-"] .benefit-item {
+      margin-top: 0;
+    }
   }
 }
 
@@ -227,6 +304,20 @@
 .pullquote {
   flex: 0 0 min(100%, 620px);
   scroll-snap-align: start;
+
+  &:nth-child(odd) {
+    transform: rotate(-0.6deg);
+    margin-top: $space-md;
+  }
+
+  &:nth-child(even) {
+    transform: rotate(0.6deg);
+  }
+
+  @include respond(md) {
+    transform: none !important;
+    margin-top: 0 !important;
+  }
 
   blockquote {
     font-family: $font-display;
