@@ -15,9 +15,14 @@
   border-bottom: 1px solid $color-line;
   align-items: baseline;
 
+  &:nth-child(2) { margin-left: $space-sm; }
+  &:nth-child(3) { margin-left: $space-md; }
+  &:nth-child(4) { margin-left: $space-lg; }
+
   @include respond(sm) {
     grid-template-columns: 1fr;
     gap: 2px;
+    margin-left: 0 !important;
   }
 }
 
@@ -39,6 +44,24 @@
       color: $color-copper;
       border-color: $color-copper;
     }
+  }
+}
+
+// Map tilts slightly and the form column drops lower, so the two
+// halves feel pinned together rather than aligned on a strict grid
+.contact-map {
+  transform: rotate(-1deg);
+
+  @include respond(lg) {
+    transform: none;
+  }
+}
+
+.contact-form-col {
+  margin-top: $space-xl;
+
+  @include respond(lg) {
+    margin-top: $space-md;
   }
 }
 
