@@ -39,7 +39,8 @@ npm install -g sass
 sass scss/main.scss css/main.css --style expanded
 ```
 ## Links
-- GitHub Repository: _add your repo link here_
-- Live Site: 
+- GitHub Repository: https://github.com/MRamiko/Ravensbrew
+- Live Site: https://mramiko.github.io/Ravensbrew/
 ## Author
+Amiran Oniani
 
